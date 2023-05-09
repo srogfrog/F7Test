@@ -1,0 +1,84 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Passcode Entry</title>
+  <style>
+    body {
+      background-color: white;
+      text-align: center;
+      font-family: sans-serif;
+    }
+    
+    input[type="text"] {
+      font-size: 24px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      box-shadow: 0px 0px 10px #999;
+    }
+    
+    .green {
+      background-color: #3c3;
+      color: white;
+    }
+    
+    .red {
+      background-color: #c33;
+      color: white;
+    }
+    
+    .message {
+      font-size: 32px;
+      font-weight: bold;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="passcode-container">
+    <h1>Enter the 4-Digit Passcode:</h1>
+    <input type="text" id="passcode-input" maxlength="4" autofocus>
+      <br><br>
+    <button onclick="checkPasscode()">Submit</button>
+  </div>
+
+  
+  
+  <div id="message-container"></div>
+  
+  <script>
+    function checkPasscode() {
+      var passcodeInput = document.getElementById("passcode-input");
+      var passcodeContainer = document.getElementById("passcode-container");
+      var messageContainer = document.getElementById("message-container");
+      var passcode = passcodeInput.value;
+      if (passcode === "1234") {
+        passcodeContainer.style.display = "none";
+        document.body.classList.add("green");
+        messageContainer.textContent = "Code correct!";
+        messageContainer.classList.add("message");
+        setTimeout(function() {
+          document.body.classList.remove("green");
+          messageContainer.textContent = "";
+          passcodeInput.value = "";
+          passcodeContainer.style.display = "block";
+          passcodeInput.focus();
+        }, 1000);
+      } else {
+        passcodeContainer.style.display = "none";
+        document.body.classList.add("red");
+        messageContainer.textContent = "Code incorrect!";
+        messageContainer.classList.add("message");
+        setTimeout(function() {
+          document.body.classList.remove("red");
+          messageContainer.textContent = "";
+          passcodeInput.value = "";
+          passcodeContainer.style.display = "block";
+          passcodeInput.focus();
+        }, 1000);
+      }
+    }
+  </script>
+</body>
+</html>
