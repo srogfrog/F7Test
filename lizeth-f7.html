@@ -1,0 +1,97 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>3-Digit Entry</title>
+  <style>
+    body {
+      background-color: white;
+      text-align: center;
+      font-family: sans-serif;
+    }
+    
+    input[type="text"] {
+      font-size: 24px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: 2px solid black;
+    }
+    
+    .green {
+      background-color: #3c3;
+      color: white;
+    }
+    
+    .red {
+      background-color: #c33;
+      color: white;
+    }
+    
+    .message {
+      font-size: 32px;
+      font-weight: bold;
+      margin-top: 50px;
+    }
+    
+    button {
+      background-color: black;
+      color: white;
+      font-size: 20px;
+      border-radius: 5px;
+      border: 1px solid black;
+      padding: 5px;
+    }
+    
+    button:hover {
+      background-color: dimgray;
+      border: 1px solid dimgray;
+    }
+  </style>
+</head>
+<body>
+  <div id="passcode-container">
+    <h1>Enter the Code (Lizeth):</h1>
+    <input type="text" id="passcode-input" maxlength="3" autofocus>
+      <br><br>
+    <button onclick="checkPasscode()">Submit</button>
+  </div>
+
+  
+  
+  <div id="message-container"></div>
+  
+  <script>
+    function checkPasscode() {
+      var passcodeInput = document.getElementById("passcode-input");
+      var passcodeContainer = document.getElementById("passcode-container");
+      var messageContainer = document.getElementById("message-container");
+      var passcode = passcodeInput.value;
+      if (passcode === String((95*5*4-94)/3)) {
+        passcodeContainer.style.display = "none";
+        document.body.classList.add("green");
+        messageContainer.textContent = "Code Correct! Your Box has a SWORD on it";
+        messageContainer.classList.add("message");
+        setTimeout(function() {
+          document.body.classList.remove("green");
+          messageContainer.textContent = "";
+          passcodeInput.value = "";
+          passcodeContainer.style.display = "block";
+          passcodeInput.focus();
+        }, 1800);
+      } else {
+        passcodeContainer.style.display = "none";
+        document.body.classList.add("red");
+        messageContainer.textContent = "Code incorrect!";
+        messageContainer.classList.add("message");
+        setTimeout(function() {
+          document.body.classList.remove("red");
+          messageContainer.textContent = "";
+          passcodeInput.value = "";
+          passcodeContainer.style.display = "block";
+          passcodeInput.focus();
+        }, 1800);
+      }
+    }
+  </script>
+</body>
+</html>
