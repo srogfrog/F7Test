@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Passcode Entry</title>
+  <title>3-Digit Entry</title>
   <style>
     body {
       background-color: white;
@@ -13,9 +13,8 @@
       font-size: 24px;
       padding: 10px;
       border-radius: 10px;
-      border: 2px solid black;
-      outline: none;
-      box-shadow: 0px 0px 10px #999;
+      border: none;
+      outline: 2px solid black;
     }
     
     .green {
@@ -33,11 +32,25 @@
       font-weight: bold;
       margin-top: 50px;
     }
+    
+    button {
+      background-color: black;
+      color: white;
+      font-size: 20px;
+      border-radius: 5px;
+      border: 1px solid black;
+      padding: 5px;
+    }
+    
+    button:hover {
+      background-color: dimgray;
+      border: 1px solid dimgray;
+    }
   </style>
 </head>
 <body>
   <div id="passcode-container">
-    <h1>Enter the Code:</h1>
+    <h1>Enter the Code (YOUR NAME):</h1>
     <input type="password" id="passcode-input" maxlength="3" autofocus>
       <br><br>
     <button onclick="checkPasscode()">Submit</button>
@@ -45,7 +58,7 @@
 
   
   
-  <div id="message-container"></div>
+  <div id="message-container" style="white-space: pre-line;"></div>
   
   <script>
     function checkPasscode() {
