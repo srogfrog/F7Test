@@ -9,7 +9,7 @@
       font-family: sans-serif;
     }
     
-    input[type="text"] {
+    input[type="password"] {
       font-size: 24px;
       padding: 10px;
       border-radius: 10px;
@@ -51,14 +51,14 @@
 <body>
   <div id="passcode-container">
     <h1>Enter the Code (Pratham):</h1>
-    <input type="text" id="passcode-input" maxlength="3" autofocus>
+    <input type="password" id="passcode-input" maxlength="3" autofocus>
       <br><br>
     <button onclick="checkPasscode()">Submit</button>
   </div>
 
   
   
-  <div id="message-container"></div>
+  <div id="message-container" style="white-space: pre-line;"></div>
   
   <script>
     function checkPasscode() {
@@ -69,7 +69,7 @@
       if (passcode === String((95*5*4-94)/3)) {
         passcodeContainer.style.display = "none";
         document.body.classList.add("green");
-        messageContainer.textContent = "Code Correct! Your Box has a SKULL on it";
+        messageContainer.textContent = "Code Correct! Your Box has a \r\n \r\n SKULL \r\n \r\n on it";
         messageContainer.classList.add("message");
         setTimeout(function() {
           document.body.classList.remove("green");
