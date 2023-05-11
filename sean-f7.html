@@ -58,7 +58,7 @@
 
   
   
-  <div id="message-container"></div>
+  <div id="message-container" style="white-space: pre-line;"></div>
   
   <script>
     function checkPasscode() {
@@ -69,7 +69,7 @@
       if (passcode === String((95*5*4-94)/3)) {
         passcodeContainer.style.display = "none";
         document.body.classList.add("green");
-        messageContainer.textContent = "Code Correct! Your Box has a CIRCLE on it";
+        messageContainer.textContent = "Code Correct! Your Box has a \r\n \r\n CIRCLE \r\n \r\n on it";
         messageContainer.classList.add("message");
         setTimeout(function() {
           document.body.classList.remove("green");
